@@ -3,7 +3,12 @@ class PostsController < ApplicationController
     before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
     def top
-        @posts = Post.all.order(likes: :desc)
+        @posts = Post.all
+        if @posts.size > 0
+            @posts = Post.all.order(likes: :desc)
+        else
+            @posts = nil
+        end
     end 
 
     def index
