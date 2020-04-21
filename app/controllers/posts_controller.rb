@@ -3,13 +3,34 @@ class PostsController < ApplicationController
     before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
     def top
-        @posts = Post.all
-        if @posts.size > 0
-            @posts = Post.all.order(likes: :desc)
-        else
-            @posts = nil
+        @posts = Post.all 
+        @array = []
+        for post in @posts do
+            like_num =  Like.where(post_id: post.id).count
+            like_object = {'number': like_num, 'post_id': post.id} 
+            @array.push like_object 
         end
+        result = bubble_sort(@array)
+        @first = Post.find(result[result.size]['post_id']) #一番いいねが多いやつ
+        @second = Post.find(result[result.size -1]['post_id']) #２番めにいいねが多いやつ
+        @third = Post.find(result[result.size -2]['post_id']) #3番めにいいねが多いやつ
     end 
+
+    def bubble_sort(array)
+        ary = array
+        len = ary.length
+        (1..len).each do |i| 
+            (1..(len-i)).each do |jx| 
+                jy = jx - 1 
+                if ary[jy]["number"] > ary[jx]["number"]
+                    temp = ary[jy]
+                    ary[jy] = ary[jx]
+                    ary[jx] = temp
+                end 
+            end 
+        end 
+        return ary 
+    end
 
     def index
         @q = Post.ransack(params[:q])
