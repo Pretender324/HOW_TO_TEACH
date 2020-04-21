@@ -17,34 +17,36 @@
         <div class="col-md-3"></div>
         <div class="col-md-6">
             <h2 class="title">人気の投稿</h2>
-            <% if current_user %>
-                <% @posts.first(3).each do |post| %>
-                    <div class="post">
-                        <p><%= post.user.name %></p>
-                        <p><span class="category"><%= post.style %></span><span class="category"><%= post.subject %></span><span class="category"><%= post.grade %></span></p>
-                        <p class="post_title"><%= post.title %></p>
-                        <p class="post_content"><%= post.contents %></p>
-                        <% if current_user.already_liked?(post) %>
-                            <p><i class="fa fa-heart" style="color: red;" aria-hidden="true"></i><%= post.liked_users.count %></p>
-                        <% else %>
+            <% unless @posts.nil? %>
+                <% if current_user %>
+                    <% @posts.first(3).each do |post| %>
+                        <div class="post">
+                            <p><%= post.user.name %></p>
+                            <p><span class="category"><%= post.style %></span><span class="category"><%= post.subject %></span><span class="category"><%= post.grade %></span></p>
+                            <p class="post_title"><%= post.title %></p>
+                            <p class="post_content"><%= post.contents %></p>
+                            <% if current_user.already_liked?(post) %>
+                                <p><i class="fa fa-heart" style="color: red;" aria-hidden="true"></i><%= post.liked_users.count %></p>
+                            <% else %>
+                                <p><i class="far fa-heart" style="color: red;" aria-hidden="true"></i><%= post.liked_users.count %></p>
+                            <% end %>
+                            <p class="created_at"><%= post.created_at %></p>
+                            <a href="/posts/<%= post.id %>/show"></a>
+                        </div>
+                    <% end %>
+                <% else %>
+                    <% @posts.first(3).each do |post| %>
+                        <div class="post">
+                            <p><%= post.user.name %></p>
+                            <p><span class="category"><%= post.style %></span><span class="category"><%= post.subject %></span><span class="category"><%= post.grade %></span></p>
+                            <p class="post_title"><%= post.title %></p>
+                            <p class="post_content"><%= post.contents %></p>
                             <p><i class="far fa-heart" style="color: red;" aria-hidden="true"></i><%= post.liked_users.count %></p>
-                        <% end %>
-                        <p class="created_at"><%= post.created_at %></p>
-                        <a href="/posts/<%= post.id %>/show"></a>
-                    </div>
-                <% end %>
-            <% else %>
-                <% @posts.first(3).each do |post| %>
-                    <div class="post">
-                        <p><%= post.user.name %></p>
-                        <p><span class="category"><%= post.style %></span><span class="category"><%= post.subject %></span><span class="category"><%= post.grade %></span></p>
-                        <p class="post_title"><%= post.title %></p>
-                        <p class="post_content"><%= post.contents %></p>
-                        <p><i class="far fa-heart" style="color: red;" aria-hidden="true"></i><%= post.liked_users.count %></p>
-                        <p class="created_at"><%= post.created_at %></p>
-                        <a href="/posts/<%= post.id %>/show"></a>
-                    </div>
-                    <br>
+                            <p class="created_at"><%= post.created_at %></p>
+                            <a href="/posts/<%= post.id %>/show"></a>
+                        </div>
+                        <br>
+                    <% end %>
                 <% end %>
             <% end %>
         </div>
