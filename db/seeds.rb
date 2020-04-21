@@ -13,9 +13,9 @@ user.save!
     Post.create!(
         title: "test#{n + 1}",
         contents: "テスト太郎#{n + 1}",
-        style: "集団"
-        subject: "数学"
-        grade: "中学生"
-        user_id: "1"
+        style: "集団",
+        subject: "数学",
+        grade: "中学生",
+        user_id: 1
     )
   end
