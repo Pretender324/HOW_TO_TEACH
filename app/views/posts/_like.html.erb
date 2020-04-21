@@ -1,0 +1,12 @@
+<div id="like-<%= @post.id %>">
+    <% if current_user.already_liked?(@post) %>
+        <%= link_to "/posts/#{@post.id}/likes/#{current_user.id}", {method: :delete, remote: true} do %>
+            <i class="fa fa-heart" style="color: red;" aria-hidden="true"></i>
+        <% end %>
+    <% else %>
+        <%= link_to "/posts/#{@post.id}/likes", {method: :post, remote: true} do %>
+            <i class="far fa-heart" style="color: red;" aria-hidden="true"></i>
+        <% end %>
+    <% end %>
+    <%= @post.likes.count %>
+</div>

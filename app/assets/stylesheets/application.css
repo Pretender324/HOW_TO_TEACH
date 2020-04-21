@@ -1,0 +1,230 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ 
+
+ header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 70px;
+    width: 100%;
+    background-color: black;
+    opacity: 0.8;
+    z-index: 10000;
+    overflow: hidden;
+}
+
+ul {
+    list-style: none;
+}
+
+.menu_link {
+    display: block;
+    float: left;
+    line-height: 70px;
+    text-align: center;
+    color: white;
+    margin-left: 40px;;
+    height: 70px;  
+    width: 7%;
+    text-decoration: none;
+    background-color: rgba(0, 0, 0, 0.8);
+    border: none;
+}
+
+.menu_link:hover {
+    background-color: white;
+    text-decoration: none;
+    color: black;
+}
+
+.user {
+    float: right;
+    margin-right: 40px;
+    color: white;
+    line-height: 70px;
+}
+
+.container {
+    margin-top: 80px;
+}
+
+.search {
+    float: right;
+    margin-top: 5px;
+    margin-right: 40px;
+}
+
+.recent_post {
+    margin-top: 100px;
+}
+
+.post_title {
+    font-weight: bold;
+    font-size: larger;
+}
+
+.post_content {
+    display: -webkit-box;
+    width: auto;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    height: 100px;
+}
+
+.posts_index {
+    background-image: url("/images/no113-01.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.contents {
+    background-color: rgba(231, 231, 214, 0.877);
+}
+
+#content{
+    z-index:2;
+    width:50%;
+    padding-top: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-bottom: 5em;
+    background-color: white;
+    opacity: 1;
+    transition: 1s;
+}
+
+#overlay{
+    /*　要素を重ねた時の順番　*/
+    z-index: 1;
+
+    /*　画面全体を覆う設定　*/
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background-color:rgba(0,0,0,0.7);
+
+    /*　画面の中央に要素を表示させる設定　*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.fade-enter-active, .fade-leave-active {
+    transition: opacity .5s
+  }
+.fade-enter, .fade-leave-to {
+    opacity: 0
+}
+
+.actions {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+
+.login_link {
+    display: inline-block;
+    margin-top: 5px;
+}
+
+.close {
+    border: none;
+    font-size: 60px;
+    font-weight: lighter;
+}
+
+footer {
+    background-color: rgba(0, 0, 0, 0.8);
+    height: 70px;
+    padding-left: 20px;
+    margin-bottom: 0px;
+}
+
+.footer_title {
+    color: white;
+    line-height: 50px;
+}
+
+.address_edit {
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.profile_edit {
+    text-align: center;
+    margin-top: 100px;
+    height: 620px;
+}
+
+.field {
+    margin-top: 20px;
+}
+
+.show {
+    background-color: burlywood;
+}
+
+.show_content {
+    margin-top: 260px;
+    margin-bottom: 210px;
+    border: solid 1px grey;
+    border-radius: 4px;
+    padding: 20px;
+    background-color: white;
+}
+
+.heart {
+    content: "\f08a";
+    font-family: FontAwesome;
+}
+
+.heart:active {
+    background-position: -2800px 0;
+    -webkit-transition: background 1s steps(28);
+    transition: background 1s steps(28);
+}
+
+.category {
+    display: inline-block;
+    background-color: rgba(127, 255, 212, 0.5);
+    margin-right: 20px;
+    padding: 0px 5px;
+    border-radius: 5px;
+}
+
+.back {
+    text-align: center;
+    height: 100px;
+}
+
+.search_view {
+    margin-top: 70px;
+    padding-top: 30px;
+    background-image: url("/images/no113-01.jpg");
+    background-size: cover;
+    min-height: 650px;
+}
+
+.search_result {
+    margin-top: 30px;
+}

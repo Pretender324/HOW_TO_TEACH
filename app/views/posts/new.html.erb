@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body>
+   <div class="new">
+      <div class="container-fluid">
+         <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+               <div class="new_post">
+                  <h3>新しく投稿する</h3>
+                  <%= form_for(@post, :url => { controller:'posts', action:'create'})do |f| %>
+            
+                     <%= f.select :style, ['集団', '個別']%>
+                     <%= f.select :subject, ['英語', '数学', "国語", "理科", "社会"]%>
+                     <%= f.select :grade, ['小学生', '中学生', "高校生"]%>
+
+                     <br>
+                     <br>
+                     <%= f.label :タイトル %>
+                     <%= f.text_field :title, size: "75x10" %>
+
+                     <br>
+                     <br>
+                     <%= f.text_area :contents, size: "82x20" %>
+                     <br>
+                     <%= f.submit "投稿する" , class: "btn btn-primary btn-lg btn-block" %>
+                     <br>
+                  <% end %>
+               </div>
+            </div>
+            <div class="col-md-3"></div>
+         </div>
+      </div>
+   </div>
+</body>
+</html>
+

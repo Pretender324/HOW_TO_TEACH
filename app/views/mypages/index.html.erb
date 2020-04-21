@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="top-wrapper">
+    <div class="user_info">
+      <div class="user_image_mypage"></div>
+      <style>
+        .user_image_mypage {
+            background-image: url("<%= @user.image %>");  /* 表示する画像 */
+            width:  100px;       /* ※縦横を同値に */
+            height: 100px;       /* ※縦横を同値に */
+            border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
+            background-position: center center;
+              /* 横長画像の左上を基準に表示 */
+            margin: auto;
+            margin-bottom: 30px;
+        }
+      </style>
+      <h3><%= @user.name %></h3>
+      <p><%= @user.email %></p>
+      <% if current_user.id == @user.id %>
+          <%= link_to 'プロフィール編集', profile_edit_path, {class: "edit"} %>
+          <%= link_to "アドレス・パスワード編集", edit_user_registration_path, {class: "edit"} %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="container-fluid history">
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-5">
+        <h3 class="title">投稿履歴</h3>
+        <% @user.posts.order(created_at: :desc).each do |post| %>
+          <div class="post">
+            <p class="post_title"><%= post.title %></p>
+            <p><span class="category"><%= post.style %></span><span class="category"><%= post.subject %></span><span class="category"><%= post.grade %></span></p>
+            <p class="post_content"><%= post.contents %></p>
+            <p class="created_at"><%= post.created_at %></p>
+            <% if current_user.already_liked?(post) %>
+                <p><i class="fa fa-heart" style="color: red;" aria-hidden="true"></i><%= post.liked_users.count %></p>
+            <% else %>
+                <p><i class="far fa-heart" style="color: red;" aria-hidden="true"></i><%= post.liked_users.count %></p>
+            <% end %>
+            <a href="/posts/<%= post.id %>/show"></a>
+          </div>  
+        <% end %>
+      </div>
+      <div class="col-md-3">
+        <h3 class="title">いいねしている投稿</h3>
+        <% @user.liked_posts.order(created_at: :desc).each do |post| %>
+          <div class="post">
+            <p><span class="user_name"><%= post.user.name %></span><%= post.title %></p>
+            <p class="created_at"><%= post.created_at %></p>
+            <% if current_user.already_liked?(post) %>
+                <p><i class="fa fa-heart" style="color: red;" aria-hidden="true"></i><%= post.liked_users.count %></p>
+            <% else %>
+                <p><i class="far fa-heart" style="color: red;" aria-hidden="true"></i><%= post.liked_users.count %></p>
+            <% end %>
+            <a href="/posts/<%= post.id %>/show"></a>
+          </div>
+        <% end %>  
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+  </div>
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+// Place all the styles related to the mypages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.top-wrapper {
+    margin-top: 70px;
+    text-align: center;
+    height: 600px;
+    padding-top: 200px;
+    background-color: lavender;
+    background-image: url("/images/shubham-sharan-Z-fq3wBVfMU-unsplash.jpg");
+    background-size: cover;
+}
+
+
+.title {
+    margin-top: 20px;
+}
+
+.post {
+    position: relative;
+    border: solid 1px grey;
+    border-radius: 4px;
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    background-color: white;
+}
+
+.post a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height:100%;
+    width: 100%;
+}
+
+.post :hover {
+    background-color: rgba(194, 194, 194, 0.3);
+}
+
+.created_at {
+    font-size: small;
+    color: grey;
+    float: right;
+    padding-right: 5px;
+}
+
+.history {
+    background-color: rgba(222, 184, 135, 0.658);
+    padding-bottom: 50px;
+}
+
+.user_name {
+    font-weight: bold;
+    color: black;
+    margin-right: 20px;
+}
+
+.user_name:hover {
+    text-decoration: none;
+}
+
+.edit {
+    color: white;
+    margin-left: 15px;
+}

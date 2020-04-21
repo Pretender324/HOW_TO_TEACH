@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="post">
+        <%= form_for(@post, :url => { controller:'posts', action:'update'}, :method => :post)do |f| %>
+
+            <%= f.select :style, ['集団', '個別'], :selected=>@post.style %>
+            <%= f.select :subject, ['英語', '数学', "国語", "理科", "社会"], :selected=>@post.subject %>
+            <%= f.select :grade, ['小学生', '中学生', "高校生"], :selected=>@post.grade %>
+
+
+            <%= f.label :本文 %>
+            <br>
+            <%= f.text_area :contents, :size => "200x40" %>
+            <br>
+            <%= f.submit %>
+            <br>
+        <% end %>
+    </div>
+</body>
+</html>
