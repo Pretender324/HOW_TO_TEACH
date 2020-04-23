@@ -1,0 +1,44 @@
+.modal{
+    display: none;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+.modal__bg{
+    background: rgba(0,0,0,0.8);
+    height: 100vh;
+    position: absolute;
+    width: 100%;
+}
+.modal__content{
+    background: #fff;
+    left: 50%;
+    padding-top: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-bottom: 5em;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 60%;
+    height: 300px;
+    text-align: center;
+}
+
+.login-alert {
+    margin-top: 70px;
+    font-weight: bold;
+    font-size: x-large;
+}
+
+.show_btn {
+    margin-top: 50px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.btn-default {
+    color: #F8F8F9;
+    background-color: #90A4B4;
+}

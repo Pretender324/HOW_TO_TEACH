@@ -1,20 +1,60 @@
 <% unless @post.nil? %>
-  <div class="container-fluid show">
-    <div class="row">
-      <div class="col-md-2"></div>
-      <div class="col-md-8 show_content">
-        <a href="/mypages/#{@post.user.id}"><%= @post.user.name %></a>
-        <h3><%= @post.title %></h3>
-        <p><%= @post.contents %></p>
-        <%= render partial: "posts/like", locals: { post: @post } %>
+  <% if current_user %>
+    <div class="container-fluid show">
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8 show_content">
+          <a href="/mypages/#{@post.user.id}" class="user_name"><%= @post.user.name %></a><span>さん</span>
+          <h3><%= @post.title %></h3>
+          <p><%= @post.contents %></p>
+          <%= render partial: "posts/like", locals: { post: @post } %>
+        </div>
+        <div class="col-md-2"></div>
       </div>
-      <div class="col-md-2"></div>
+      <div class="back">
+        <a href="/posts/index" class="btn btn-primary">投稿一覧に戻る</a>
+      </div>
     </div>
-    <div class="back">
-      <a href="/posts/index" class="btn btn-primary">投稿一覧に戻る</a>
+  <% else %>
+    <div class="container-fluid show">
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8 show_content">
+          <a href="/mypages/#{@post.user.id}" class="user_name"><%= @post.user.name %></a><span>さん</span>
+          <h3><%= @post.title %></h3>
+          <p><%= @post.contents %></p>
+          <a href="#" class="js-modal-open"><i class="far fa-heart" style="color: red;" aria-hidden="true"></i></a><span class="like_count"><%= @post.likes.count %></span>
+        </div>
+        <div class="col-md-2"></div>
+      </div>
+      <div class="back">
+        <a href="/posts/index" class="btn btn-primary">投稿一覧に戻る</a>
+      </div>
     </div>
-  </div>
+    <div class="modal js-modal">
+      <div class="modal__bg js-modal-close"></div>
+      <div class="modal__content">
+          <p><a class="js-modal-close close" href="">×</a></p>
+          <p class="login-alert">いいねするにはログインが必要です</p>
+          <a href="/users/sign_in" class="btn btn-primary show_btn">ログイン</a>
+          <a href="/users/sign_up" class="btn btn-default show_btn">新規登録</a>
+          
+          
+      </div><!--modal__inner-->
+    </div><!--modal-->
+  <% end %>
 <% end %>
 
-
+<script>
+  $(function(){
+    $('.js-modal-open').on('click',function(){
+      $('.js-modal').fadeIn();
+      return false;
+    });
+    $('.js-modal-close').on('click',function(){
+      $('.js-modal').fadeOut();
+      return false;
+    });
+  });
+</script>
 

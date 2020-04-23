@@ -21,8 +21,8 @@
             margin-bottom: 30px;
         }
       </style>
-      <h3><%= @user.name %></h3>
-      <p><%= @user.email %></p>
+      <h3 class="mypage_user"><%= @user.name %></h3>
+      <br>
       <% if current_user.id == @user.id %>
           <%= link_to 'プロフィール編集', profile_edit_path, {class: "edit"} %>
           <%= link_to "アドレス・パスワード編集", edit_user_registration_path, {class: "edit"} %>

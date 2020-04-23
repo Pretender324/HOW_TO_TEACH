@@ -1,9 +1,11 @@
-<div class="jumbotron jumbotron-extend">
+<div class="jumbotron jumbotron-extend message-wrapper">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-5">
-                <h1 class="message">How To Teach</h1>
-                <p class="message">説明</p>
+                <h1 class="message message_title">How To Teach</h1>
+                <p class="message">「教え方がわからない」</p>
+                <p class="message">「なんで理解してくれないの？」</p>
+                <p class="message">そういった先生たちの悩みを解決するサイトです。</p>
             </div>
 
             <div class="col-md-7">
@@ -21,14 +23,14 @@
                 <% if current_user %>
                     <% [@first, @second, @third].each do |post| %>
                         <div class="post">
-                            <p><%= post.user.name %></p>
+                            <p class="user_name"><%= post.user.name %></p>
                             <p><span class="category"><%= post.style %></span><span class="category"><%= post.subject %></span><span class="category"><%= post.grade %></span></p>
                             <p class="post_title"><%= post.title %></p>
                             <p class="post_content"><%= post.contents %></p>
                             <% if current_user.already_liked?(post) %>
-                                <p><i class="fa fa-heart" style="color: red;" aria-hidden="true"></i><%= post.liked_users.count %></p>
+                                <p><i class="fa fa-heart" style="color: red;" aria-hidden="true"></i><span class="like_count"><%= post.liked_users.count %></span></p>
                             <% else %>
-                                <p><i class="far fa-heart" style="color: red;" aria-hidden="true"></i><%= post.liked_users.count %></p>
+                                <p><i class="far fa-heart" style="color: red;" aria-hidden="true"></i><span class="like_count"><%= post.liked_users.count %></span></p>
                             <% end %>
                             <p class="created_at"><%= post.created_at %></p>
                             <a href="/posts/<%= post.id %>/show"></a>
@@ -37,11 +39,11 @@
                 <% else %>
                     <% [@first, @second, @third].each do |post| %>
                         <div class="post">
-                            <p><%= post.user.name %></p>
+                            <p class="user_name"><%= post.user.name %></p>
                             <p><span class="category"><%= post.style %></span><span class="category"><%= post.subject %></span><span class="category"><%= post.grade %></span></p>
                             <p class="post_title"><%= post.title %></p>
                             <p class="post_content"><%= post.contents %></p>
-                            <p><i class="far fa-heart" style="color: red;" aria-hidden="true"></i><%= post.liked_users.count %></p>
+                            <p><i class="far fa-heart" style="color: red;" aria-hidden="true"></i><span class="like_count"><%= post.liked_users.count %></span></p>
                             <p class="created_at"><%= post.created_at %></p>
                             <a href="/posts/<%= post.id %>/show"></a>
                         </div>

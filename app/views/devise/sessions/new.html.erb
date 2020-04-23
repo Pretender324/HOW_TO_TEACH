@@ -1,20 +1,19 @@
-<div class="container">
+<div class="container-fluid sign_in">
   <div class="row">
     <div class="col-md-3">
-
     </div>
-    <div class="col-md-6">
+    <div class="col-md-6 sign_in_form">
       <h2 class="text-center font-weight-bold">ログイン</h2>
 
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
         <div class="field">
-          <%= f.label :email %>
+          <%= f.label :Eメール %>
           <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "col-md-12"%>
         </div>
 
         <div class="field">
-          <%= f.label :password %>
+          <%= f.label :パスワード %>
           <%= f.password_field :password, autocomplete: "current-password", class: "col-md-12"%>
         </div>
 
@@ -26,7 +25,7 @@
         <% end %>
 
         <div class="actions">
-          <%= f.submit "Log in" %>
+          <%= f.submit "ログイン", class: "btn btn-primary btn-lg col-md-12" %>
         </div>
       <% end %>
 

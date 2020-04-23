@@ -4,16 +4,20 @@
 .top-wrapper {
     margin-top: 70px;
     text-align: center;
-    height: 600px;
-    padding-top: 200px;
+    height: 450px;
+    padding-top: 100px;
     background-color: lavender;
-    background-image: url("/images/shubham-sharan-Z-fq3wBVfMU-unsplash.jpg");
+    background-image: url("/images/Chalkboard-background.jpg");
     background-size: cover;
 }
 
+.mypage_user {
+    color: #35A76C;
+}
 
 .title {
     margin-top: 20px;
+    color: #F8F8F9;
 }
 
 .post {
@@ -24,6 +28,7 @@
     margin-top: 20px;
     margin-bottom: 10px;
     background-color: white;
+    font-size: smaller;
 }
 
 .post a {
@@ -46,14 +51,14 @@
 }
 
 .history {
-    background-color: rgba(222, 184, 135, 0.658);
+    background-color: #1E1E36;
     padding-bottom: 50px;
 }
 
 .user_name {
     font-weight: bold;
-    color: black;
-    margin-right: 20px;
+    color: #35A76C;
+    margin-right: 10px;
 }
 
 .user_name:hover {
@@ -61,6 +66,6 @@
 }
 
 .edit {
-    color: white;
+    color: #90A4B4;
     margin-left: 15px;
 }

@@ -12,7 +12,7 @@
             <div class="col-md-3"></div>
             <div class="col-md-6">
                <div class="new_post">
-                  <h3>新しく投稿する</h3>
+                  <h3 class="black_title">新しく投稿する</h3>
                   <%= form_for(@post, :url => { controller:'posts', action:'create'})do |f| %>
             
                      <%= f.select :style, ['集団', '個別']%>
@@ -27,6 +27,7 @@
                      <br>
                      <br>
                      <%= f.text_area :contents, size: "82x20" %>
+                     <br>
                      <br>
                      <%= f.submit "投稿する" , class: "btn btn-primary btn-lg btn-block" %>
                      <br>

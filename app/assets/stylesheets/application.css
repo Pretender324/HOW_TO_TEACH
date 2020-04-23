@@ -14,16 +14,19 @@
  *= require_self
  */
 
+
+* {
+    font-family: "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
+}
  
 
- header {
+header {
     position: fixed;
     top: 0;
     left: 0;
     height: 70px;
     width: 100%;
     background-color: black;
-    opacity: 0.8;
     z-index: 10000;
     overflow: hidden;
 }
@@ -71,11 +74,13 @@ ul {
 
 .recent_post {
     margin-top: 100px;
+    color: #F8F8F9;
 }
 
 .post_title {
     font-weight: bold;
-    font-size: larger;
+    font-size: x-large;
+    color: #1E1E36;
 }
 
 .post_content {
@@ -84,7 +89,7 @@ ul {
     overflow: hidden;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 4;
-    height: 100px;
+    height: 75px;
 }
 
 .posts_index {
@@ -94,7 +99,9 @@ ul {
 }
 
 .contents {
-    background-color: rgba(231, 231, 214, 0.877);
+    background-color: #1E1E36;
+    padding-left: 10%;
+    padding-right: 10%;
 }
 
 #content{
@@ -153,27 +160,31 @@ ul {
 }
 
 footer {
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: black;
     height: 70px;
     padding-left: 20px;
     margin-bottom: 0px;
 }
 
 .footer_title {
-    color: white;
+    color: #35A76C;
     line-height: 50px;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
 }
 
 .address_edit {
     text-align: center;
-    margin-top: 100px;
-    margin-bottom: 100px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    background-color: #1E1E36;
 }
 
 .profile_edit {
     text-align: center;
-    margin-top: 100px;
-    height: 620px;
+    padding-top: 100px;
+    height: 720px;
+    background-color: #1E1E36;
 }
 
 .field {
@@ -181,7 +192,7 @@ footer {
 }
 
 .show {
-    background-color: burlywood;
+    background-color: #1E1E36;
 }
 
 .show_content {
@@ -206,7 +217,8 @@ footer {
 
 .category {
     display: inline-block;
-    background-color: rgba(127, 255, 212, 0.5);
+    background-color: #90A4B4;
+    color: #F8F8F9;
     margin-right: 20px;
     padding: 0px 5px;
     border-radius: 5px;
@@ -227,4 +239,72 @@ footer {
 
 .search_result {
     margin-top: 30px;
+}
+
+.profile_edit_form {
+    margin-top: 5%;
+    padding-top: 5%;
+    background-color: #F8F8F9;
+    border: solid 1px #F8F8F9;
+    border-radius: 5px;
+}
+
+.change {
+    margin-top: 20px;
+}
+
+.edit_form {
+    padding-top: 5%;
+    background-color: #F8F8F9;
+    border: solid 1px #F8F8F9;
+    border-radius: 5px;
+}
+
+.icon::before {
+    display: inline-block;
+    margin-right: 5px;
+    font-family: fontawesome;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.return {
+    float: right;
+    margin-bottom: 50px;
+    color: #1E1E36;
+}
+
+.registration {
+    text-align: center;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    background-color: #1E1E36;
+}
+
+.registration_form {
+    padding-top: 5%;
+    background-color: #F8F8F9;
+    border: solid 1px #F8F8F9;
+    border-radius: 5px;
+}
+
+.like_count {
+    margin-left: 5px;
+}
+
+.sign_in {
+    text-align: center;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    background-color: #1E1E36;
+}
+
+.sign_in_form {
+    padding-top: 5%;
+    padding-bottom: 5%;
+    background-color: #F8F8F9;
+    border: solid 1px #F8F8F9;
+    border-radius: 5px;
+    min-height: 520px;   
+    text-align: left;
 }

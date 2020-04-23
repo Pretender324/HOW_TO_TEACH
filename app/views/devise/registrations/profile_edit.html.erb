@@ -2,7 +2,8 @@
 <div class="container-fluid profile_edit">
   <div class="row">
     <div class="col-md-3"></div>
-    <div class="col-md-6">
+    <div class="col-md-6 profile_edit_form">
+      <h3 class="black_title">プロフィール編集</h3>
       <%= form_for current_user, url: {action: 'profile_update'}, html: {method: "post"} do |f| %>
  
         <div class="field">
@@ -11,15 +12,16 @@
         </div>
 
         <div class="field">
-        <%= f.label :画像を選択 %>
-        <br>
-        <%= f.file_field :image %>
+          <%= f.label :画像を選択 %>
+          <br>
+          <%= f.file_field :image %>
         </div>
       
         <div class="actions">
-          <%= f.submit "変更" %>
+          <%= f.submit "変更", class: "btn btn-primary btn-lg change" %>
         </div>
       <% end %>
+      <%= link_to "戻る", :back, class: "fa fa-arrow-left return" %>
     </div>
     <div class="col-md-3"></div>
   </div>

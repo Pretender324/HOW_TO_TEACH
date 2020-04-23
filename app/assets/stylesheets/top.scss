@@ -1,10 +1,27 @@
 .jumbotron-extend {
     margin-top: 70px;
-    height: 400px;
+    margin-bottom: 0px;
+    height: 450px;
+}
+
+.message-wrapper {
+    background-image: url("/images/Chalkboard-background.jpg");
+    background-size: cover;
 }
 
 .message {
-    text-align: center;
+    color: white;
+    margin-left: 70px;
+    text-align: left;
+    font-size: larger;
+}
+
+.message_title {
+    font-size: 52px;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    color: #35A76C;
+    margin-bottom: 50px;
 }
 
 .form {
@@ -16,6 +33,6 @@
 }
 
 .popular_posts {
-    background-color: burlywood;
+    background-color: #1E1E36;
     height: auto;
 }

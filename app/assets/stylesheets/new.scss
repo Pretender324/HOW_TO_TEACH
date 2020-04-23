@@ -1,10 +1,18 @@
   
 .new {
-    background-image: url("/images/03.jpg");
-    background-size: cover;
+    background-color: #F8F8F9;
+}
+
+.black_title {
+    color: #1E1E36;
 }
 
 .new_post {
     margin-top: 100px;
     margin-bottom: 100px;
+}
+
+.btn-primary {
+    background-color: #35A76C;
+    border-color: #35A76C;
 }
