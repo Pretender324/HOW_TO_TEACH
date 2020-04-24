@@ -15,8 +15,10 @@
  */
 
 
-* {
+body {
+    position: relative;
     font-family: "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif;
+    z-index: 0;
 }
  
 
@@ -27,7 +29,7 @@ header {
     height: 70px;
     width: 100%;
     background-color: black;
-    z-index: 10000;
+    z-index: 1;
     overflow: hidden;
 }
 
@@ -46,7 +48,8 @@ ul {
     text-align: center;
     color: white;
     margin-left: 40px;;
-    height: 70px;  
+    height: 70px; 
+    width: 120px; 
     text-decoration: none;
     background-color: rgba(0, 0, 0, 0.8);
     border: none;
@@ -108,7 +111,7 @@ ul {
 }
 
 #content{
-    z-index:2;
+    z-index:3;
     width:50%;
     padding-top: 1em;
     padding-left: 1em;
@@ -121,7 +124,7 @@ ul {
 
 #overlay{
     /*　要素を重ねた時の順番　*/
-    z-index: 1;
+    z-index: 2;
 
     /*　画面全体を覆う設定　*/
     position:fixed;
@@ -315,6 +318,7 @@ footer {
 
     #nav-drawer {
         display: block;
+        justify-content: stretch;
     }
 
     .menu_link {
@@ -384,12 +388,13 @@ footer {
         position: fixed;
         top: 0;
         left: 0;
-        z-index: 9999;/*最前面に*/
+        z-index: 999;/*最前面に*/
         width: 90%;/*右側に隙間を作る（閉じるカバーを表示）*/
         max-width: 330px;/*最大幅（調整してください）*/
         height: 100%;
-        background: #1E1E36;/*背景色*/
-        transition: .3s ease-in-out;/*滑らかに表示*/
+        background-color: #1E1E36;/*背景色*/
+        -webkit-transition: -webkit-transform .3s ease-in-out;
+        transition: all .3s ease-in-out;/*滑らかに表示*/
         -webkit-transform: translateX(-105%);
         transform: translateX(-105%);/*左に隠しておく*/
     }
@@ -417,6 +422,10 @@ footer {
         padding-left: 0px;
     }
 
+    .menu_list_xs {
+        z-index: 9999;
+    }
+
     .menu_xs {
         display: block;
         line-height: 70px;
@@ -427,6 +436,8 @@ footer {
         padding-left: 20px;
         text-decoration: none;
         border: none;
+        position: relative;
+        z-index: 9999 !important;
     }
 
     .menu_xs:hover {

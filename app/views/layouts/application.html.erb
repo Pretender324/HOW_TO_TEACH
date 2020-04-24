@@ -27,20 +27,23 @@
                   <%= submit_tag '検索する' ,class: "btn btn-xs btn-primary" %>
               <% end %>
             </div>
-            <ul>
-              <li class="menu_xs"><%= link_to("トップページ", "/", {class: "menu_xs"}) %></li>
-              <% if current_user %>
-                <li class="menu_xs"><%= link_to("新規投稿", "/posts/new", {class: "menu_xs"})%></li>
-              <% end %>
-              <li class="menu_xs"><%= link_to("投稿一覧", "/posts/index", {class: "menu_xs"})%></li>
-              <% if current_user %>
-                <% unless request.path.include?("mypages") %>
-                  <li class="menu_xs"><%= link_to("マイページ", "/mypages/#{current_user.id}", {class: "menu_xs"})%></li>
+            <div class="menu_list_xs">
+              <ul>
+                <li class="menu_xs"><%= link_to("トップページ", "/", {class: "menu_xs"}) %></li>
+                <% if current_user %>
+                  <li class="menu_xs"><%= link_to("新規投稿", "/posts/new", {class: "menu_xs"})%></li>
                 <% end %>
-                <li class="menu_xs"><%= link_to('ログアウト', destroy_user_session_path, {method: :delete, class: "menu_xs"}) %></li>
-              <% else %>
-              <li class="menu_xs"><%= link_to('ログイン', new_user_session_path, {class: "menu_xs"}) %></li>
-              <% end %>
+                <li class="menu_xs"><%= link_to("投稿一覧", "/posts/index", {class: "menu_xs"})%></li>
+                <% if current_user %>
+                  <% unless request.path.include?("mypages") %>
+                    <li class="menu_xs"><%= link_to("マイページ", "/mypages/#{current_user.id}", {class: "menu_xs"})%></li>
+                  <% end %>
+                  <li class="menu_xs"><%= link_to('ログアウト', destroy_user_session_path, {method: :delete, class: "menu_xs"}) %></li>
+                <% else %>
+                <li class="menu_xs"><%= link_to('ログイン', new_user_session_path, {class: "menu_xs"}) %></li>
+                <% end %>
+              </ul>
+            </div>
           </div>
       </div>
       <ul>
