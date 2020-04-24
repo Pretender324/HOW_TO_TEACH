@@ -2,6 +2,7 @@
     margin-top: 70px;
     margin-bottom: 0px;
     height: 450px;
+    border-radius: 0px;
 }
 
 .message-wrapper {
@@ -35,4 +36,17 @@
 .popular_posts {
     background-color: #1E1E36;
     height: auto;
+}
+
+@media(max-width: 1000px) {
+    .top_teaching_img {
+        display: none;
+    }
+}
+
+@media(max-width: 500px) {
+
+    .message {
+        margin-left: auto;
+    }
 }

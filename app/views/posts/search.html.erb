@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-8 contents">
-            <h3 class="search_result">'<%= @keyword %>'の検索結果</h3>
+            <h3 class="title">'<%= @keyword %>'の検索結果</h3>
             <% if current_user %>
                 <% @posts.each do |post| %>
                     <div class="post">

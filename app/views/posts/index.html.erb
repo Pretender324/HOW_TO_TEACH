@@ -32,7 +32,7 @@
                     <% else %>
                         <% @posts.each do |post| %>
                             <div class="post">
-                                <p><%= post.user.name %></p>
+                                <p class="user_name"><%= post.user.name %></p>
                                 <p><span class="category"><%= post.style %></span><span class="category"><%= post.subject %></span><span class="category"><%= post.grade %></span></p>
                                 <p class="post_title"><%= post.title %></p>
                                 <p class="post_content"><%= post.contents %></p>

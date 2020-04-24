@@ -1,23 +1,23 @@
 <div class="jumbotron jumbotron-extend message-wrapper">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-5">
+            <div class="col-lg-5 col-xs-12">
                 <h1 class="message message_title">How To Teach</h1>
                 <p class="message">「教え方がわからない」</p>
                 <p class="message">「なんで理解してくれないの？」</p>
                 <p class="message">そういった先生たちの悩みを解決するサイトです。</p>
             </div>
 
-            <div class="col-md-7">
-                <img src="/images/index_intro_sp-img.png" alt="">
+            <div class="col-lg-7">
+                <img src="/images/index_intro_sp-img.png" class="top_teaching_img" alt="">
             </div>
         </div> 
     </div>
 </div>
 <div class="container-fluid popular_posts">
     <div class="row">
-        <div class="col-md-3"></div>
-        <div class="col-md-6">
+        <div class="col-md-2"></div>
+        <div class="col-md-8 col-xs-12">
             <h2 class="title">人気の投稿<%= @result_size %></h2>
             <% unless @posts.nil? %>
                 <% if current_user %>
@@ -52,6 +52,6 @@
                 <% end %>
             <% end %>
         </div>
-        <div class="col-md-3"></div>   
+        <div class="col-md-2"></div>   
     </div>
 </div>

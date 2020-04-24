@@ -42,3 +42,9 @@
     color: #F8F8F9;
     background-color: #90A4B4;
 }
+
+@media(max-width: 1000px) {
+    .modal__content {
+        width: 90%;
+    }
+}

@@ -8,12 +8,41 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
 
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <header>
+      <div id="nav-drawer">
+          <input id="nav-input" type="checkbox" class="nav-unshown">
+          <label id="nav-open" for="nav-input"><span><i class="humburger fa fa-bars"></i></span></label>
+          <label class="nav-unshown" id="nav-close" for="nav-input"></label>
+          <div id="nav-content">
+            <div class="nav-header">
+              <%= form_tag("/posts/search", method: :get) do %>
+                  <%= text_field_tag :search %>
+                  <%= submit_tag '検索する' ,class: "btn btn-xs btn-primary" %>
+              <% end %>
+            </div>
+            <ul>
+              <li class="menu_xs"><%= link_to("トップページ", "/", {class: "menu_xs"}) %></li>
+              <% if current_user %>
+                <li class="menu_xs"><%= link_to("新規投稿", "/posts/new", {class: "menu_xs"})%></li>
+              <% end %>
+              <li class="menu_xs"><%= link_to("投稿一覧", "/posts/index", {class: "menu_xs"})%></li>
+              <% if current_user %>
+                <% unless request.path.include?("mypages") %>
+                  <li class="menu_xs"><%= link_to("マイページ", "/mypages/#{current_user.id}", {class: "menu_xs"})%></li>
+                <% end %>
+                <li class="menu_xs"><%= link_to('ログアウト', destroy_user_session_path, {method: :delete, class: "menu_xs"}) %></li>
+              <% else %>
+              <li class="menu_xs"><%= link_to('ログイン', new_user_session_path, {class: "menu_xs"}) %></li>
+              <% end %>
+          </div>
+      </div>
       <ul>
         <li class="menu"><%= link_to("トップページ", "/", {class: "menu_link"}) %></li>
         <% if current_user %>
@@ -25,7 +54,7 @@
             <li class="menu"><%= link_to("マイページ", "/mypages/#{current_user.id}", {class: "menu_link"})%></li>
           <% end %>
           <li class="menu"><%= link_to('ログアウト', destroy_user_session_path, {method: :delete, class: "menu_link"}) %></li>
-          <p class="user">ログイン中のユーザー:<%= current_user.name %></p>
+          <span class="user"><%= current_user.name %></span>
         <% else %>
           <div id="app">
             <button v-on:click="openModal"　class="menu_link">ログイン</button>
@@ -38,7 +67,7 @@
                       <div class="col-md-3">
                   
                       </div>
-                      <div class="col-md-6">
+                      <div class="col-md-6 col-xs-12">
                         <h2 class="text-center font-weight-bold">ログイン</h2>
                   
                         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
