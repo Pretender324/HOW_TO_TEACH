@@ -12,17 +12,29 @@
                 <div class="col-md-10 contents">
                     <h3 class="recent_post">最新の投稿</h3>
                     <br>
+                    <h5 class="tags_title">タグで絞り込み</h4>
+                    <%= form_tag posts_index_path, method: :get do %>
+                        <%= select_tag 'style', options_for_select(['集団', '個別'], @style), include_blank: true, class: 'btn btn-info' %>
+                        <%= select_tag 'subject', options_for_select(['英語', '数学', "国語", "理科", "社会"], @subject), include_blank: true, class: 'btn btn-info' %>
+                        <%= select_tag 'grade', options_for_select(['小学生', '中学生', '高校生'], @grade), include_blank: true, class: 'btn btn-info' %>
+                        <%= submit_tag '表示', class: "btn btn-primary" %>
+                    <% end %>
+
+                    <% if @posts == nil %>
+                        <h3>条件に一致する投稿はありません</h3>
+                    <% end %>
+                    
                     <% if current_user %>
                         <% @posts.each do |post| %>
                             <div class="post">
                                 <p class="user_name"><%= post.user.name %></p>
                                 <p><span class="category"><%= post.style %></span><span class="category"><%= post.subject %></span><span class="category"><%= post.grade %></span></p>
                                 <p class="post_title"><%= post.title %></p>
-                                <p class="post_content"><%= post.contents %></p>
+                                <p class="post_content"><%=safe_join(post.contents.split("\n"),tag(:br))%></p>
                                 <% if current_user.already_liked?(post) %>
-                                    <p><i class="fa fa-heart" style="color: red;" aria-hidden="true"></i><%= post.liked_users.count %></p>
+                                    <p><i class="fa fa-heart" style="color: red;" aria-hidden="true"></i><span class="like_count"><%= post.liked_users.count %></span></p>
                                 <% else %>
-                                    <p><i class="far fa-heart" style="color: red;" aria-hidden="true"></i><%= post.liked_users.count %></p>
+                                    <p><i class="far fa-heart" style="color: red;" aria-hidden="true"></i><span class="like_count"><%= post.liked_users.count %></span></p>
                                 <% end %>
                                 <p class="created_at"><%= post.created_at %></p>
                                 <a href="/posts/<%= post.id %>/show"></a>
@@ -36,7 +48,7 @@
                                 <p><span class="category"><%= post.style %></span><span class="category"><%= post.subject %></span><span class="category"><%= post.grade %></span></p>
                                 <p class="post_title"><%= post.title %></p>
                                 <p class="post_content"><%= post.contents %></p>
-                                <p><i class="far fa-heart" style="color: red;" aria-hidden="true"></i><%= post.liked_users.count %></p>
+                                <p><i class="far fa-heart" style="color: red;" aria-hidden="true"></i><span class="like_count"><%= post.liked_users.count %></span></p>
                                 <p class="created_at"><%= post.created_at %></p>
                                 <a href="/posts/<%= post.id %>/show"></a>
                             </div>

@@ -25,6 +25,11 @@
     margin-bottom: 50px;
 }
 
+.top_teaching_img {
+    float: right;
+    width: 500px;
+}
+
 .form {
     height: 400px;
 }
@@ -36,6 +41,46 @@
 .popular_posts {
     background-color: #1E1E36;
     height: auto;
+    padding-bottom: 100px;
+}
+
+.help-wrapper {
+    background-color: #35A76C;
+}
+
+.help {
+    margin-top: 70px;
+    margin-bottom: 70px;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+    border: 1px solid #1E1E36;
+    border-radius: 10px;
+    background-color: #F8F8F9;
+}
+
+.help_title {
+    display: inline-block;
+    background-color: #6EBF97;
+    color: #F8F8F9;
+    margin-top: 30px;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    width: max-content;
+
+}
+
+.help_img {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 300px;
+    border: solid 1px #1E1E36;
+    border-radius: 10px;
+}
+
+.help_info {
+    line-height: 40px;
 }
 
 @media(max-width: 1000px) {

@@ -83,6 +83,10 @@ ul {
     color: #F8F8F9;
 }
 
+.tags_title {
+    color: #F8F8F9;
+}
+
 .post_title {
     font-weight: bold;
     font-size: x-large;
@@ -99,15 +103,16 @@ ul {
 }
 
 .posts_index {
-    background-image: url("/images/no113-01.jpg");
+    background-image: url("/images/shubham-sharan-Z-fq3wBVfMU-unsplash.jpeg");
     background-size: cover;
     background-attachment: fixed;
 }
 
 .contents {
-    background-color: #1E1E36;
+    background-color: rgba(30, 30, 54, 0.8);
     padding-left: 10%;
     padding-right: 10%;
+    min-height: 720px;
 }
 
 #content{
@@ -177,6 +182,13 @@ footer {
     line-height: 50px;
     font-family: 'Times New Roman', Times, serif;
     font-style: italic;
+    font-size: xx-large;
+}
+
+.footer_title:hover {
+    text-decoration: none;
+    color: #35A76C;
+
 }
 
 .address_edit {
@@ -312,6 +324,11 @@ footer {
     border-radius: 5px;
     min-height: 520px;   
     text-align: left;
+}
+
+.btn-info {
+    margin-right: 10px;
+    height: 30px;
 }
 
 @media(max-width: 1000px) {

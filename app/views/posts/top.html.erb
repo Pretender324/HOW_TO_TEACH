@@ -9,9 +9,29 @@
             </div>
 
             <div class="col-lg-7">
-                <img src="/images/index_intro_sp-img.png" class="top_teaching_img" alt="">
+                <img src="/images/workshop-1746275_960_720.jpg" class="top_teaching_img" alt="">
             </div>
         </div> 
+    </div>
+</div>
+<div class="container-fluid">
+    
+    <div class="row help-wrapper">
+        <div class="col-md-1"></div>
+        <div class="col-md-5 col-xs-12 help">
+            <h3 class="help_title">参考にする</h3>
+            <br>
+            <img src="/images/kako-5DcyP7JVzyToIl2P.png" class="help_img" alt="">
+            <p class="help_info">メニューの”投稿一覧”から先輩講師のエピソードを探しましょう</p>
+            <p class="help_info">参考になる投稿を見つけたら、早速自分の生徒に活かしましょう<br>また、いいねを押してユーザーに感謝を伝えましょう</p>
+        </div>
+        <div class="col-md-5 col-xs-12 help">
+            <h3 class="help_title">投稿する</h3>
+            <p class="help_info">講師としてある程度経験がある方は、<br>後輩のために自身の経験を投稿しましょう<br>成功例でも失敗談でもなんでも構いません</p>
+            <img src="/images/kako-mSeeM0EtcUAlysp8.png" class="help_img" alt="">
+            <p class="help_info">ログインし、メニューの新規投稿から投稿しましょう<br>きっとあなたの経験が役に立つはずです！</p>
+        </div>
+        <div class="col-md-1"></div>
     </div>
 </div>
 <div class="container-fluid popular_posts">
@@ -26,7 +46,7 @@
                             <p class="user_name"><%= post.user.name %></p>
                             <p><span class="category"><%= post.style %></span><span class="category"><%= post.subject %></span><span class="category"><%= post.grade %></span></p>
                             <p class="post_title"><%= post.title %></p>
-                            <p class="post_content"><%= post.contents %></p>
+                            <p class="post_content"><%=safe_join(post.contents.split("\n"),tag(:br))%></p>
                             <% if current_user.already_liked?(post) %>
                                 <p><i class="fa fa-heart" style="color: red;" aria-hidden="true"></i><span class="like_count"><%= post.liked_users.count %></span></p>
                             <% else %>
@@ -42,7 +62,7 @@
                             <p class="user_name"><%= post.user.name %></p>
                             <p><span class="category"><%= post.style %></span><span class="category"><%= post.subject %></span><span class="category"><%= post.grade %></span></p>
                             <p class="post_title"><%= post.title %></p>
-                            <p class="post_content"><%= post.contents %></p>
+                            <p class="post_content"><%=safe_join(post.contents.split("\n"),tag(:br))%></p>
                             <p><i class="far fa-heart" style="color: red;" aria-hidden="true"></i><span class="like_count"><%= post.liked_users.count %></span></p>
                             <p class="created_at"><%= post.created_at %></p>
                             <a href="/posts/<%= post.id %>/show"></a>

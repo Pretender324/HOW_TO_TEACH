@@ -15,9 +15,9 @@
                   <h3 class="black_title">新しく投稿する</h3>
                   <%= form_for(@post, :url => { controller:'posts', action:'create'})do |f| %>
             
-                     <%= f.select :style, ['集団', '個別']%>
-                     <%= f.select :subject, ['英語', '数学', "国語", "理科", "社会"]%>
-                     <%= f.select :grade, ['小学生', '中学生', "高校生"]%>
+                     <%= f.select :style, ['集団', '個別'],{}, {class: "btn btn-info"}%>
+                     <%= f.select :subject, ['英語', '数学', "国語", "理科", "社会"],{}, {class: "btn btn-info"}%>
+                     <%= f.select :grade, ['小学生', '中学生', "高校生"],{}, {class: "btn btn-info"}%>
 
                      <br>
                      <br>

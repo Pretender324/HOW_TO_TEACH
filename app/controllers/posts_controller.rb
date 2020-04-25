@@ -34,8 +34,17 @@ class PostsController < ApplicationController
     end
 
     def index
-        @q = Post.ransack(params[:q])
-        @posts = @q.result(distinct: true)
+        @style = params[:style].present? ? params[:style] : "形態"
+        @subject = params[:subject].present? ? params[:subject] : "教科"
+        @grade = params[:grade].present? ? params[:grade] : "学年"
+
+        posts_style = params[:style].present? ? Post.where(style: params[:style]).order(created_at: :desc) : Post.all.order(created_at: :desc)
+        posts_subject = params[:subject].present? ? Post.where(subject: params[:subject]).order(created_at: :desc) : posts_style
+        @posts = params[:grade].present? ? posts_style.where(grade: params[:grade]).order(created_at: :desc) : posts_subject
+    end
+
+    def narrow
+
     end
 
     def new

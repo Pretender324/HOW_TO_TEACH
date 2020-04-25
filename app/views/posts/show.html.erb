@@ -6,7 +6,7 @@
         <div class="col-md-8 show_content">
           <a href="/mypages/#{@post.user.id}" class="user_name"><%= @post.user.name %></a><span>さん</span>
           <h3><%= @post.title %></h3>
-          <p><%= @post.contents %></p>
+          <p><%=safe_join(@post.contents.split("\n"),tag(:br))%></p>
           <%= render partial: "posts/like", locals: { post: @post } %>
         </div>
         <div class="col-md-2"></div>
@@ -22,7 +22,7 @@
         <div class="col-md-8 show_content">
           <a href="/mypages/#{@post.user.id}" class="user_name"><%= @post.user.name %></a><span>さん</span>
           <h3><%= @post.title %></h3>
-          <p><%= @post.contents %></p>
+          <p><%=safe_join(@post.contents.split("\n"),tag(:br))%></p>
           <a href="#" class="js-modal-open"><i class="far fa-heart" style="color: red;" aria-hidden="true"></i></a><span class="like_count"><%= @post.likes.count %></span>
         </div>
         <div class="col-md-2"></div>
