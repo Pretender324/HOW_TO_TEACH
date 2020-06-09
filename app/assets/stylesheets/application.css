@@ -331,6 +331,11 @@ footer {
     height: 30px;
 }
 
+.delete_link {
+    position: relative;
+    z-index: 2;
+}
+
 @media(max-width: 1000px) {
 
     #nav-drawer {

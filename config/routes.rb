@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   post "posts/create" => "posts#create"
   get "posts/:id/edit" => "posts#edit"
   post "posts/:id/update" => "posts#update"
-  get "posts/:id/destroy" => "posts#destroy"
+  delete "posts/:id/destroy" => "posts#destroy", as: 'destroy'
   get "posts/:id/show" => "posts#show"
   get "posts/search" => "posts#search"
   get "posts/search_multiple" => "posts#search_multiple"

@@ -11,9 +11,9 @@ class PostsController < ApplicationController
             @array.push like_object 
         end
         result = bubble_sort(@array)
-        @first = Post.find(result[result.size-1]['post_id']) #一番いいねが多いやつ
-        @second = Post.find(result[result.size-2]['post_id']) #２番めにいいねが多いやつ
-        @third = Post.find(result[result.size-3]['post_id']) #3番めにいいねが多いやつ
+        @first = Post.find(result[result.size-1]['post_id']) #一番いいねが多い
+        @second = Post.find(result[result.size-2]['post_id']) #２番めにいいねが多い
+        @third = Post.find(result[result.size-3]['post_id']) #3番めにいいねが多い
     end 
 
     def bubble_sort(array)
